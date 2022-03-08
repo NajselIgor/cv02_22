@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner klavestnica = new Scanner(System.in);
+        /*Scanner klavestnica = new Scanner(System.in);
         String a = "a";
         String b = "a";
         System.out.println("Zadaj pismeno: ");
@@ -43,9 +43,44 @@ public class Main {
 
         testSpread("slovo1", y);
         testSpread("slovo2", 5,1,1,5,6,8,1);
-        testSpread("slovo3", 150);
+        testSpread("slovo3", 150);*/
+        Scanner fromKeyboard = new Scanner(System.in);
+
+        int[] pole = new int[]{};
+        int vstup;
+        do {
+            vstup = fromKeyboard.nextInt();
+            pole = appendElement(pole, vstup);
+        } while (vstup != 0);
+
+        System.out.println(Arrays.toString(pole));
+
+    int [][] pole2D = new int[3][3];
+    int toAppend = 0;
+
+    for (int i = 0; i < 3; i++)
+        for (int j = 0; j < 3; j++) {
+            pole2D[i][j] = toAppend;
+            toAppend++;
+        }
+        for (int i = 0; i < 3; i++)
+                System.out.println(Arrays.toString(pole2D[i]));
     }
 
+
+
+
+    public static int[] appendElement(int[] pole, int toAppend) {
+        int[] newArray = new int[pole.length + 1];
+
+        for (int i = 0; i < pole.length; i++) {
+            newArray[i] = pole[i];
+        }
+
+        newArray[pole.length] = toAppend;
+
+        return newArray;
+    }
 
     public static void testPrimitive(int cislo) {
         cislo = 10;
@@ -64,4 +99,6 @@ public class Main {
         System.out.println("Nulty prvok: " + (poleOrVariable[0]));
         System.out.println(text + " VarArg parameter musi byt posledny v zozname vstupnych parametrov do funkcie");
     }
+
+
 }
